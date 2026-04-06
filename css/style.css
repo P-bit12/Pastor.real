@@ -1,0 +1,326 @@
+/* 1. GLOBAL SETUP & SCROLL SNAPPING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Changing 'mandatory' to 'proximity' lets you scroll freely, 
+       but it will still "suck" the section into place when you get close. */
+    scroll-snap-type: y proximity;
+}
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. NAVIGATION (Fixed at Top) */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 20px 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(102, 191, 191, 0.1);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #66BFBF;
+    text-shadow: 0 0 10px #66BFBF;
+}
+
+/* 3. FULL-SCREEN SECTION CONTROL */
+section, footer {
+    /* We keep the height at 100vh so each section fills the screen */
+    min-height: 100vh; 
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 10% 40px;
+    /* This ensures that if content is too long, you can still scroll inside the section */
+    overflow-y: auto; 
+}
+/* 4. HERO SECTION (Priest) */
+.priest {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    text-align: center;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #66BFBF;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(102, 191, 191, 0.3);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.priest-img {
+    width: 300px;
+    margin-top: 30px;
+    border-radius: 20px;
+    filter: grayscale(30%);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.priest-img3{
+    width: 200px;
+}
+
+/* 5. ABOUT SECTION */
+.about-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.line1 {
+    width: 100px;
+    border: 1px solid #66BFBF;
+    margin: 20px auto;
+}
+
+/* 6. BOOKS SECTION (Grid) */
+.book-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.book-card {
+    background: #151515;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    border-color: #66BFBF;
+}
+
+.book-img, .priest-img2, .priest-img3 {
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.book-price {
+    color: #66BFBF;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #66BFBF;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* 7. INVITATION FORM (Glassmorphism) */
+.invitation-container {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 900px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.8rem;
+    color: #66BFBF;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-input, .form-textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #66BFBF;
+}
+
+.btn1 {
+    width: 100%;
+    padding: 15px;
+    background: #66BFBF;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn1:hover {
+    background: #4e9a9a;
+    box-shadow: 0 0 20px rgba(102, 191, 191, 0.4);
+}
+
+/* 8. FOOTER / CONTACT */
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.footer-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.footer-info i {
+    color: #66BFBF;
+    margin-right: 15px;
+}
+
+.social-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: #66BFBF;
+    text-shadow: 0 0 15px #66BFBF;
+}
+
+.footer-divider {
+    width: 100%;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    margin: 40px 0 20px;
+}
+
+.copyright-text {
+    color: #555;
+    font-size: 0.8rem;
+}
+/* --- RESPONSIVE DESIGN (The "Magic" for Phones & Ipads) --- */
+
+/* For Tablets (iPad) and smaller laptops */
+@media (max-width: 1024px) {
+    .priest {
+        flex-direction: column; /* Stacks the image below the text */
+        text-align: center;
+        height: auto;
+        padding-top: 120px;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .book-grid {
+        flex-wrap: wrap; /* Allows books to drop to the next line */
+        justify-content: center;
+    }
+}
+
+/* For Mobile Phones (iPhone, Samsung, etc.) */
+@media (max-width: 768px) {
+    .nav-list {
+        gap: 15px; /* Squeezes the menu so it fits */
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .form-row {
+        flex-direction: column; /* Stacks the form inputs (Name above Email) */
+        gap: 10px;
+    }
+
+    .priest-img {
+        width: 220px; /* Makes the image smaller for tiny screens */
+    }
+
+    section, footer {
+        height: auto; /* Disables the strict 100vh so content doesn't get cut off */
+        min-height: 100vh;
+        padding: 80px 5% 40px;
+    }
+    
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
