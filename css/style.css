@@ -1,4 +1,4 @@
-/* 1. GLOBAL SETUP & SCROLL SNAPPING */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +8,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* Changing 'mandatory' to 'proximity' lets you scroll freely, 
-       but it will still "suck" the section into place when you get close. */
     scroll-snap-type: y proximity;
 }
 body {
@@ -19,7 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-/* 2. NAVIGATION (Fixed at Top) */
 .main-nav {
     position: fixed;
     top: 0;
@@ -53,9 +50,7 @@ body {
     text-shadow: 0 0 10px #66BFBF;
 }
 
-/* 3. FULL-SCREEN SECTION CONTROL */
 section, footer {
-    /* We keep the height at 100vh so each section fills the screen */
     min-height: 100vh; 
     width: 100%;
     scroll-snap-align: start;
@@ -64,10 +59,8 @@ section, footer {
     justify-content: center;
     align-items: center;
     padding: 100px 10% 40px;
-    /* This ensures that if content is too long, you can still scroll inside the section */
     overflow-y: auto; 
 }
-/* 4. HERO SECTION (Priest) */
 .priest {
     background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
     text-align: center;
@@ -97,7 +90,6 @@ section, footer {
     width: 200px;
 }
 
-/* 5. ABOUT SECTION */
 .about-content {
     max-width: 800px;
     text-align: center;
@@ -121,7 +113,6 @@ section, footer {
     margin: 20px auto;
 }
 
-/* 6. BOOKS SECTION (Grid) */
 .book-grid {
     display: flex;
     gap: 30px;
@@ -167,7 +158,6 @@ section, footer {
     font-weight: 600;
 }
 
-/* 7. INVITATION FORM (Glassmorphism) */
 .invitation-container {
     background: rgba(255, 255, 255, 0.03);
     padding: 40px;
@@ -226,7 +216,6 @@ label {
     box-shadow: 0 0 20px rgba(102, 191, 191, 0.4);
 }
 
-/* 8. FOOTER / CONTACT */
 .footer-grid {
     display: flex;
     justify-content: space-between;
@@ -267,12 +256,10 @@ label {
     color: #555;
     font-size: 0.8rem;
 }
-/* --- RESPONSIVE DESIGN (The "Magic" for Phones & Ipads) --- */
 
-/* For Tablets (iPad) and smaller laptops */
 @media (max-width: 1024px) {
     .priest {
-        flex-direction: column; /* Stacks the image below the text */
+        flex-direction: column; 
         text-align: center;
         height: auto;
         padding-top: 120px;
@@ -283,15 +270,15 @@ label {
     }
 
     .book-grid {
-        flex-wrap: wrap; /* Allows books to drop to the next line */
+        flex-wrap: wrap; 
         justify-content: center;
     }
 }
 
-/* For Mobile Phones (iPhone, Samsung, etc.) */
+
 @media (max-width: 768px) {
     .nav-list {
-        gap: 15px; /* Squeezes the menu so it fits */
+        gap: 15px; 
     }
 
     .nav-link {
@@ -304,16 +291,16 @@ label {
     }
 
     .form-row {
-        flex-direction: column; /* Stacks the form inputs (Name above Email) */
+        flex-direction: column;
         gap: 10px;
     }
 
     .priest-img {
-        width: 220px; /* Makes the image smaller for tiny screens */
+        width: 220px; 
     }
 
     section, footer {
-        height: auto; /* Disables the strict 100vh so content doesn't get cut off */
+        height: auto; 
         min-height: 100vh;
         padding: 80px 5% 40px;
     }
